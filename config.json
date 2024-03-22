@@ -10,7 +10,8 @@
     "enableHttpPost": false,
     "enableWs": false,
     "enableWsReverse": true,
-    "messagePostFormat": "string"
+    "messagePostFormat": "string",
+    "httpSecret": ""
   },
   "heartInterval": 60000,
   "token": "",
@@ -20,5 +21,6 @@
   "reportSelfMessage": false,
   "autoDeleteFile": false,
   "ffmpeg": "/usr/bin/ffmpeg",
-  "autoDeleteFileSecond": 120
+  "autoDeleteFileSecond": 120,
+  "enablePoke": false
 }
