@@ -118,7 +118,8 @@ if [[ -z "$config_file_to_edit" ]]; then
     "enableHttpPost": false,
     "enableWs": false,
     "enableWsReverse": true,
-    "messagePostFormat": "string"
+    "messagePostFormat": "string",
+    "httpSecret": ""
   },
   "heartInterval": 60000,
   "token": "",
@@ -128,7 +129,8 @@ if [[ -z "$config_file_to_edit" ]]; then
   "reportSelfMessage": false,
   "autoDeleteFile": false,
   "ffmpeg": "/usr/bin/ffmpeg",
-  "autoDeleteFileSecond": 120
+  "autoDeleteFileSecond": 120,
+  "enablePoke": false
 }
 EOF
 
