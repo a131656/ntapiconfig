@@ -21,12 +21,15 @@ echo "如果遇到问题欢迎加QQ群:637953682"
 echo "本脚本适用于arm和amd架构的服务器请确认自己的架构是否支持。"
 echo
 
-read -p "如您同意以上内容并继续，请按y，否则请按q退出: " user_choice
-
-user_choice=$1
+if [ -z "$1" ]; then
+    read -p "如您同意以上内容并继续，请按y，否则请按q退出: " user_choice
+else
+    user_choice=$1
+fi
 
 if [ "$user_choice" != "y" ]; then
-    echo "使用方式: curl -sL https://raw.githubusercontent.com/baquanluomu/ntapiconfig/main/2w.sh | sudo bash - y"
+    echo "您选择了退出"
+    echo "使用: curl -sL https://raw.githubusercontent.com/baquanluomu/ntapiconfig/main/2w.sh | sudo bash - y"
     exit 0
 fi
 
