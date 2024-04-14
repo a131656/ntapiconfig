@@ -46,67 +46,24 @@ if [ ! -z "$image_id" ]; then
     docker rmi -f "$image_id" && echo "已删除镜像：$image_id"
 fi
 
-
-if [ -d "$HOME/2w" ]; then
-
-    if [ -f "$HOME/2w/value.json" ] && [ -f "$HOME/2w/data.json" ]; then
-
-        read -p "2w文件夹内存在value.json和data.json，是否保留这些文件？(y/n): " preserve_files
-        if [ "$preserve_files" != "y" ]; then
-            rm -rf "$HOME/2w"
-
-            mkdir -p "$HOME/2w"
-            echo '{
-  "applist": [
-
-  ]
-}' > "$HOME/2w/value.json"
-
-            echo '{
-  "web": {
-    "name": "",
-    "notice": ""
-  },
-  "qinglong": {
-    "url": "",
-    "id": "",
-    "secret": "",
-    "version": "new"
-  },
-  "admin": {
-    "username": "",
-    "password": ""
-  }
-}' > "$HOME/2w/data.json"
-        fi
-    else
-
-        echo '{
-  "applist": [
-
-  ]
-}' > "$HOME/2w/value.json"
-
-        echo '{
-  "web": {
-    "name": "",
-    "notice": ""
-  },
-  "qinglong": {
-    "url": "",
-    "id": "",
-    "secret": "",
-    "version": "new"
-  },
-  "admin": {
-    "username": "",
-    "password": ""
-  }
-}' > "$HOME/2w/data.json"
-    fi
-else
-
+if [ ! -d "$HOME/2w" ]; then
+    echo "检测到系统没有2w相关文件夹和文件，正在创建..."
     mkdir -p "$HOME/2w"
+fi
+
+files_exist=0
+if [ -f "$HOME/2w/value.json" ] && [ -f "$HOME/2w/data.json" ]; then
+    files_exist=1
+    read -p "2w文件夹内存在value.json和data.json，是否保留这些文件？(y/n): " preserve_files
+    if [ "$preserve_files" != "y" ]; then
+
+        echo "正在删除现有文件，并创建2w所需文件..."
+        rm -f "$HOME/2w/value.json" "$HOME/2w/data.json"
+        files_exist=0
+    fi
+fi
+
+if [ $files_exist -eq 0 ]; then
     echo '{
   "applist": [
 
@@ -129,7 +86,10 @@ else
     "password": ""
   }
 }' > "$HOME/2w/data.json"
+    echo "2w相关文件创建完成。"
 fi
+
+echo "正在拉取2w镜像，请稍等..."
 
 docker run -d \
   --restart=always \
@@ -141,7 +101,7 @@ docker run -d \
   luomubiji/2w:latest
 
 if [ $? -eq 0 ]; then
-  echo "Docker镜像已成功拉取，容器已启动。"
+  echo "2wDocker镜像已成功拉取，2w容器已启动。"
 else
-  echo "拉取Docker镜像或启动容器时出现错误。"
+  echo "拉取2wDocker镜像或启动容器时出现错误。"
 fi
