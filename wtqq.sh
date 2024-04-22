@@ -121,8 +121,8 @@ configure_bot() {
     read -p "请输入机器人QQ号：" qq_number
   done
 
-  read -p "请输入服务器IP地址或域名：" server_ip
-  read -p "请输入服务器端口号：" server_port
+  read -p "请输入无界/autMan IP地址或域名：" server_ip
+  read -p "请输入无界/autMan 端口号：" server_port
   echo "配置完成。"
 }
 
