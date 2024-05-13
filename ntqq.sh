@@ -119,7 +119,8 @@ if [[ -z "$config_file_to_edit" ]]; then
     "enableWs": false,
     "enableWsReverse": true,
     "messagePostFormat": "string",
-    "httpSecret": ""
+    "httpSecret": "",
+    "enableHttpHeart": false
   },
   "heartInterval": 60000,
   "token": "",
@@ -130,7 +131,8 @@ if [[ -z "$config_file_to_edit" ]]; then
   "autoDeleteFile": false,
   "ffmpeg": "/usr/bin/ffmpeg",
   "autoDeleteFileSecond": 120,
-  "enablePoke": false
+  "enablePoke": false,
+  "musicSignUrl": ""
 }
 EOF
 
