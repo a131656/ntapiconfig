@@ -98,7 +98,7 @@ docker run -d \
   --name 2w \
   -p 8088:80 \
   -p 3002:3002 \
-  luomubiji/2w:latest
+  registry.cn-hangzhou.aliyuncs.com/smallfawn/2w:latest
 
 if [ $? -eq 0 ]; then
   echo "2wDocker镜像已成功拉取，2w容器已启动。"
