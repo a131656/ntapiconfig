@@ -157,6 +157,6 @@ fi
 
 echo "拉取并启动容器中..."
 docker pull luomubiji/ntqq:latest
-docker run -d --name NTQQ -v "/root/LLOneBot/:/opt/QQ/resources/app/LiteLoaderQQNT/data/LLOneBot/" -p 5900:5900 -p 3000:3000 luomubiji/ntqq:latest
+docker run -d  --restart=always --name NTQQ -v "/root/LLOneBot/:/opt/QQ/resources/app/LiteLoaderQQNT/data/LLOneBot/" -p 5900:5900 -p 3000:3000 luomubiji/ntqq:latest
 
 echo "容器已成功创建并启动。"
