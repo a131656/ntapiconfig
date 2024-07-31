@@ -107,9 +107,11 @@ if [[ -z "$config_file_to_edit" ]]; then
   config_file_to_edit="config_${qq_number}.json"
   cat > "$config_file_to_edit" <<EOF
 {
+  "enableLLOB": true,
   "ob11": {
     "httpPort": 3000,
     "httpHosts": [],
+    "httpSecret": "",
     "wsPort": 3001,
     "wsHosts": [
       "ws://${ip_addr}:${port}${endpoint}"
@@ -119,8 +121,8 @@ if [[ -z "$config_file_to_edit" ]]; then
     "enableWs": false,
     "enableWsReverse": true,
     "messagePostFormat": "string",
-    "httpSecret": "",
-    "enableHttpHeart": false
+    "enableHttpHeart": false,
+    "enableQOAutoQuote": false
   },
   "heartInterval": 60000,
   "token": "",
@@ -128,9 +130,8 @@ if [[ -z "$config_file_to_edit" ]]; then
   "debug": true,
   "log": false,
   "reportSelfMessage": false,
-  "autoDeleteFile": false,
-  "ffmpeg": "/usr/bin/ffmpeg",
-  "autoDeleteFileSecond": 120,
+  "autoDeleteFile": true,
+  "autoDeleteFileSecond": 60,
   "enablePoke": false,
   "musicSignUrl": ""
 }
