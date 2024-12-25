@@ -121,7 +121,10 @@ if [[ -z "$config_file_to_edit" ]]; then
     "messagePostFormat": "string",
     "httpSecret": "",
     "enableHttpHeart": false,
-    "enableQOAutoQuote": false
+    "enableQOAutoQuote": false,
+    "enable": true,
+    "listenLocalhost": false,
+    "reportSelfMessage": false
   },
   "heartInterval": 60000,
   "token": "",
@@ -135,7 +138,13 @@ if [[ -z "$config_file_to_edit" ]]; then
   "enablePoke": false,
   "musicSignUrl": "",
   "enableLLOB": true,
-  "msgCacheExpire": 120
+  "msgCacheExpire": 120,
+  "satori": {
+    "enable": false,
+    "port": 5600,
+    "listen": "0.0.0.0",
+    "token": ""
+  }
 }
 EOF
 
